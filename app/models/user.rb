@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates_uniqueness_of :username
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  has_many :experiences
 end
