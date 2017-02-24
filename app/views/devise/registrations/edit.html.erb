@@ -4,10 +4,10 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :first_name, autofocus: true %>
-    <%= f.input :last_name %>
-    <%= f.input :user_bio %>
-    <%= f.input :location %>
+    <%= f.input :first_name, required: true, autofocus: true %>
+    <%= f.input :last_name, required: true %>
+    <%= f.input :user_bio, required: true %>
+    <%= f.input :location, required: true %>
     <%= f.input :email, required: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -18,6 +18,21 @@
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
   </div>
+  
+  <div class="experiences">
+
+    <%= simple_form_for resource do |f| %>
+        <% byebug %>
+      <%= f.simple_fields_for :experiences do |exp| %>
+        <%= render 'exp_fields', f: exp %>
+      <% end %>
+      <div class="links">
+      <%= link_to_add_association 'add task', f, :experiences %>
+      </div>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
 
   <div class="form-actions">
     <%= f.button :submit, "Update" %>

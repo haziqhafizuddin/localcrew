@@ -24,6 +24,7 @@ gem 'sdoc', group: :doc
 
 gem 'simple_form'
 gem 'devise'
+gem "cocoon"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt'
