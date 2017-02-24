@@ -1,0 +1,8 @@
+
+
+<%= simple_nested_form_for @user do |f| %>
+    <%= f.input :user_id %>
+    <%= f.simple_fields_for :projects, @user.tags_for_form do |project| %>
+        <%= project.input :title, label: "Project Title" %>
+    <% end %>
+<% end %>
