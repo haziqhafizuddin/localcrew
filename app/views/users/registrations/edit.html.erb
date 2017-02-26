@@ -19,17 +19,14 @@
     <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
   </div>
   
-  <div class="experiences">
+  <div class="experiences" id="tasks">
 
-    <%= simple_form_for resource do |f| %>
-        <% byebug %>
-      <%= f.simple_fields_for :experiences do |exp| %>
-        <%= render 'exp_fields', f: exp %>
-      <% end %>
+    <%= f.simple_fields_for :experiences do |exp| %>
+      <%= exp.input :title %>
+      <%= render 'experience_fields', f: exp %>
       <div class="links">
-      <%= link_to_add_association 'add task', f, :experiences %>
+        <%= link_to_add_association 'add task', f, :experiences %>
       </div>
-      <%= f.submit %>
     <% end %>
   </div>
 
